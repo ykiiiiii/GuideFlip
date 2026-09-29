@@ -63,10 +63,8 @@ python design.py --settings examples/amylin.json --output output/amylin
 #### α-Synuclein 100–140
 
 This [example](examples/asyn.json) uses residues 100–140 of human α-synuclein
-([UniProt P37840](https://www.uniprot.org/uniprotkb/P37840/entry);
-[UniProt licence](https://www.uniprot.org/help/license)) as a sequence-only input.
-GuideFlip predicts an initial structure, then withholds the entire target template
-during design and AF2 validation.
+([UniProt P37840](https://www.uniprot.org/uniprotkb/P37840/entry)) as a sequence-only input.
+
 
 ```bash
 python design.py --settings examples/asyn.json --output output/asyn
