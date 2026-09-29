@@ -1,0 +1,20 @@
+# Tested core versions for Linux / Python 3.11 (not a complete lockfile).
+# Used as constraints by install.sh, which selects the CUDA wheels separately.
+# Run bash installation/install.sh; pip install -r requirements.txt alone is not a GPU setup.
+numpy==1.26.4
+torch==2.8.0
+torch-geometric==2.7.0
+jax==0.6.0
+jaxlib==0.6.0
+jax-cuda12-plugin==0.6.0
+jax-cuda12-pjrt==0.6.0
+dm-haiku==0.0.16
+optax==0.2.8
+biopython==1.87
+ema-pytorch==0.7.9
+scipy==1.17.1
+ml-collections==1.1.0
+dm-tree==0.1.10
+absl-py==2.4.0
+matplotlib==3.10.9
+DockQ==2.1.3

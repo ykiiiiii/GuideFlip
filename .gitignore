@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+.af3/
+.cache/
+.guideflip-af3.json
+output/
+.DS_Store

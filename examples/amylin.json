@@ -1,0 +1,17 @@
+{
+  "name": "amylin",
+  "target": "amylin.pdb",
+  "rm_target": "A1-37",
+  "binder_len": 105,
+  "filters": {
+    "af2": {
+      "enabled": true
+    },
+    "af3": {
+      "enabled": true
+    },
+    "af2_monomer": {
+      "enabled": true
+    }
+  }
+}

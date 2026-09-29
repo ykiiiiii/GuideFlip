@@ -1,0 +1,46 @@
+[project]
+name = "guideflip"
+version = "0.1.0rc1+amylin"
+description = "Binder design by AlphaFold-guided discrete flow matching"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["numpy>=1.24"]
+
+# Core tests use numpy; installation/install.sh selects the model and GPU dependencies.
+[project.optional-dependencies]
+models = [
+    "torch==2.8.0",
+    "jax==0.6.0",
+    "dm-haiku==0.0.16",
+    "optax",
+    "biopython",
+    "DockQ==2.1.3",
+    "torch-geometric>=2.6",
+    "ema-pytorch",
+    # Dependencies imported by vendored ColabDesign / AlphaFold.
+    "ml-collections",
+    "dm-tree",
+    "scipy",
+    "absl-py",
+    "matplotlib",
+]
+dev = ["pytest>=7", "biopython", "DockQ==2.1.3"]
+
+[project.scripts]
+guideflip = "guideflip.cli:main"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+# ColabDesign and ADFlip are vendored rather than resolved from an index.
+[tool.setuptools]
+py-modules = ["design"]
+
+[tool.setuptools.packages.find]
+include = ["guideflip*", "colabdesign*", "adflip*"]
+
+# Include third-party licences, provenance, and parser data in wheels.
+[tool.setuptools.package-data]
+adflip = ["data/misc/*.txt", "adflip_inference.pt", "LICENSE"]
+colabdesign = ["LICENSE.txt", "NOTICE", "af/alphafold/LICENSE"]

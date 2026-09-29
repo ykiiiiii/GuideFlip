@@ -1,0 +1,88 @@
+{
+  "_notes": [
+    "Complete settings reference, with the same design and validation as amylin.json.",
+    "Use target OR target_sequence. Use binder_len OR binder_scaffold; scaffold-only options are unused here.",
+    "Omitted config fields use these defaults. Set seed on the command line with --seed; binder_length comes from binder_len or the scaffold.",
+    "AF3 is optional. When enabled, null runtime paths are resolved from the saved installation or environment variables.",
+    "Omitted filter thresholds use defaults. null disables an individual criterion. ipTM and pLDDT use 0-1; iPAE min and iRMSD use angstroms."
+  ],
+  "name": "amylin",
+  "target": "amylin.pdb",
+  "target_sequence": null,
+  "target_chain": "A",
+  "hotspot": null,
+  "rm_target": "A1-37",
+  "binder_len": 105,
+  "binder_scaffold": null,
+  "binder_scaffold_chain": "B",
+  "designable": null,
+  "rm_binder": null,
+  "trajectories": 1,
+  "filters": {
+    "af2": {
+      "enabled": true,
+      "min_interface_ptm": 0.8,
+      "min_binder_plddt": null,
+      "max_ipae_min": 1.5,
+      "max_irmsd": 2.0
+    },
+    "af3": {
+      "enabled": true,
+      "min_interface_ptm": 0.8,
+      "min_binder_plddt": null,
+      "max_ipae_min": 1.5,
+      "max_irmsd": 2.0
+    },
+    "af2_monomer": {
+      "enabled": true,
+      "min_binder_plddt": null,
+      "max_rmsd": null
+    }
+  },
+  "af3": {
+    "python": null,
+    "script": null,
+    "model_dir": null,
+    "model_seeds": [
+      1
+    ],
+    "flash_attention_implementation": "xla"
+  },
+  "config": {
+    "af_only_mixture": 0.5,
+    "prior_gate_min_steps": 100,
+    "prior_gate_window": 15,
+    "prior_gate_patience": 10,
+    "prior_gate_max_steps": 500,
+    "learning_rate": 0.1,
+    "max_steps": 60,
+    "prior_temperature": 0.2,
+    "retained_prior_weight": 0.4,
+    "guidance_scale": 0.3,
+    "commit_threshold": [
+      0.9,
+      0.95
+    ],
+    "feedback_tolerance": 10.0,
+    "interface_cutoff": 5.0,
+    "scaffold_sequence_init": 0.0,
+    "omit_amino_acids": "C",
+    "num_models": 2,
+    "num_recycles": 3,
+    "af_only_recycles": 1,
+    "loss": {
+      "plddt": 0.1,
+      "pae_intra": 0.4,
+      "pae_inter": 0.1,
+      "contacts_intra": 1.0,
+      "contacts_inter": 5.0,
+      "interface_ptm": 0.05,
+      "radius_of_gyration": 0.0,
+      "helicity": 0.0,
+      "intra_contact_number": 2,
+      "intra_contact_distance": 14.0,
+      "inter_contact_number": 1,
+      "inter_contact_distance": 20.0
+    }
+  }
+}

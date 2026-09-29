@@ -1,0 +1,52 @@
+This directory is a vendored copy of ColabDesign.
+
+    Upstream:  https://github.com/sokrypton/ColabDesign
+    Commit:    e31a56fe1d9b4de25c8697f3a28b75892941cc72  ("Update mapping.py", 2025-10-23)
+
+ColabDesign is by Sergey Ovchinnikov and is distributed under the Beer-Ware licence,
+reproduced verbatim in LICENSE.txt.
+
+
+Third-party code within this copy
+---------------------------------
+
+colabdesign/af/alphafold/ contains source from DeepMind's AlphaFold, which is
+licensed under the Apache License, Version 2.0. The full licence text is at
+colabdesign/af/alphafold/LICENSE, and the individual files carry their own
+Apache headers.
+
+    AlphaFold
+    Copyright 2021 DeepMind Technologies Limited
+    https://github.com/google-deepmind/alphafold
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use these files except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+AlphaFold model parameters are NOT included here. They are downloaded separately
+and carry their own terms, which are not the Apache licence above.
+
+
+What differs from upstream
+--------------------------
+
+Not vendored: the mpnn, tr, rf, seq and esm_msa submodules, and the model weights
+that shipped inside them. GuideFlip uses only the AlphaFold design protocols.
+
+Modified, two files:
+
+  colabdesign/__init__.py   drops the two imports that named the submodules above.
+
+  colabdesign/af/prep.py    preserves residue-range rm_binder masks unless
+                            use_binder_template is explicitly supplied.
+
+Everything else under af/ and shared/ is upstream's, byte for byte, apart from the
+Apache licence text added at af/alphafold/LICENSE.

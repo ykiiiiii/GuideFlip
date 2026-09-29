@@ -1,0 +1,16 @@
+{
+  "name": "asyn_100_140",
+  "target_sequence": "LGKNEEGAPQEGILEDMPVDPDNEAYEMPSEEGYQDYEPEA",
+  "binder_len": 105,
+  "filters": {
+    "af2": {
+      "enabled": true
+    },
+    "af3": {
+      "enabled": true
+    },
+    "af2_monomer": {
+      "enabled": true
+    }
+  }
+}
